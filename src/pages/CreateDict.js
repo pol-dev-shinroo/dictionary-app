@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import "nes.css/css/nes.min.css";
 import { useNavigate } from "react-router-dom";
-import { createDictionary, addDictionaryFB } from "./redux/modules/dictionary";
+import { addDictionaryFB } from "redux/modules/dictionary";
 import { useDispatch } from "react-redux";
 
 function CreateDict() {
@@ -22,13 +22,6 @@ function CreateDict() {
                 completed: false,
             })
         );
-        // dispatch(
-        //     createDictionary({
-        //         word: _word.current.value,
-        //         exp: _exp.current.value,
-        //         example: _example.current.value,
-        //     })
-        // );
         navigate("/");
     };
 
@@ -37,7 +30,7 @@ function CreateDict() {
             <Title>Create a new dictionary...</Title>
             <InputField>
                 <EachInput>
-                    <label htmlFor="wordInput">New word:</label>
+                    <label htmlFor="wordInput">New word: </label>
                     <input
                         ref={_word}
                         type="text"

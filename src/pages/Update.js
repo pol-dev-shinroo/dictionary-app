@@ -3,10 +3,7 @@ import styled from "styled-components";
 import "nes.css/css/nes.min.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {
-    updateDictionary,
-    updateDictionaryFB,
-} from "./redux/modules/dictionary";
+import { updateDictionaryFB } from "../redux/modules/dictionary";
 
 function Update() {
     const navigate = useNavigate();
@@ -36,7 +33,6 @@ function Update() {
     };
 
     const updateDictionaryFunction = () => {
-        // dispatch(updateDictionary(index.index, updatedDictionary));
         dispatch(
             updateDictionaryFB(
                 data.dictionary.list[index.index].id,
@@ -45,7 +41,6 @@ function Update() {
             )
         );
         navigate("/");
-        // window.location.assign("http://localhost:3000/");
     };
 
     return (
