@@ -26,12 +26,17 @@ function App() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const is_loaded = useSelector((state) => state.dictionary.is_loaded);
+    const testState = useSelector((state) => state);
 
     React.useEffect(() => {
         dispatch(loadDictionaryFB());
     }, []);
     console.log(dispatch(loadDictionaryFB));
     dispatch(loadDictionaryFB);
+
+    // React.useEffect(() => {
+    //     navigate("/");
+    // }, [testState]);
 
     return (
         <>

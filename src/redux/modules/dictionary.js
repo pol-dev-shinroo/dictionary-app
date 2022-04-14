@@ -62,8 +62,8 @@ export function updateNotComplete(dictionary_index) {
     return { type: UPDATE_INCOMPLETE, dictionary_index };
 }
 
-export function updateDictionary(id, dictionary) {
-    return { type: UPDATE, id, dictionary };
+export function updateDictionary(index, dictionary) {
+    return { type: UPDATE, index, dictionary };
 }
 
 export function removeDictionary(dictionary_index) {
@@ -135,12 +135,13 @@ export const updateNotCompleteFB = (dictionary_id) => {
     };
 };
 
-export const updateDictionaryFB = (dictionary_id, updatedDictionary) => {
+export const updateDictionaryFB = (dictionary_id, updatedDictionary, index) => {
     return async function (dispatch) {
         dispatch(isLoaded(false));
         const docRef = doc(db, "dictionary", dictionary_id);
         await updateDoc(docRef, updatedDictionary);
-        dispatch(updateDictionary(dictionary_id, updatedDictionary));
+        dispatch(updateDictionary(index, updatedDictionary));
+        console.log(dictionary_id);
     };
 };
 
@@ -172,7 +173,7 @@ export default function reducer(state = initialState, action = {}) {
 
         case UPDATE: {
             const update_dictionary_list = state.list.map((l, idx) => {
-                if (action.id == idx) {
+                if (action.index == idx) {
                     return { ...l, ...action.dictionary };
                 }
                 return l;

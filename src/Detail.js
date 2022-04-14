@@ -37,9 +37,15 @@ function Detail() {
     return (
         <>
             <h3>Want some details?</h3>
-            <DictionaryName>Word: {dictionary_word}</DictionaryName>
-            <DictionaryName>Explanation: {dictionary_exp}</DictionaryName>
-            <DictionaryName>Example: {dictionary_example}</DictionaryName>
+            <DictionaryName>
+                <p>Word: {dictionary_word}</p>
+            </DictionaryName>
+            <DictionaryName>
+                <p>Explanation: {dictionary_exp}</p>
+            </DictionaryName>
+            <DictionaryName>
+                <p>Example: {dictionary_example}</p>
+            </DictionaryName>
             <ButtonField>
                 <Button>
                     <button
@@ -113,6 +119,7 @@ const DictionaryName = styled.div`
     font-size: 20px;
     background-color: yellow;
     position: relative;
+    overflow-wrap: break-word;
 `;
 
 const ButtonField = styled.div`

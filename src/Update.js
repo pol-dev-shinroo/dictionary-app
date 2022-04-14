@@ -40,11 +40,12 @@ function Update() {
         dispatch(
             updateDictionaryFB(
                 data.dictionary.list[index.index].id,
-                updatedDictionary
+                updatedDictionary,
+                index.index
             )
         );
         navigate("/");
-        window.location.assign("http://localhost:3000/");
+        // window.location.assign("http://localhost:3000/");
     };
 
     return (

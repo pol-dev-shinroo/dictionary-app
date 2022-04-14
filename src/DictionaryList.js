@@ -24,24 +24,28 @@ function DictionaryList() {
                             }}
                             style={{ margin: "10px" }}
                         >
-                            <div className="nes-container with-title is-centered">
+                            <EachWord className="nes-container with-title is-centered">
                                 <span className="nes-text is-primary title">
                                     Word:{" "}
                                 </span>
-                                <span>{list.word}</span>
-                            </div>
-                            <div className="nes-container with-title is-centered">
+                                <p style={{ whiteSpace: "initial" }}>
+                                    {list.word}
+                                </p>
+                            </EachWord>
+                            <EachWord className="nes-container with-title is-centered">
                                 <span className="nes-text is-success title">
                                     Explanation:{" "}
                                 </span>
-                                <span>{list.exp}</span>
-                            </div>
-                            <div className="nes-container with-title is-centered">
+                                <p style={{ whiteSpace: "initial" }}>
+                                    {list.exp}
+                                </p>
+                            </EachWord>
+                            <EachWord className="nes-container with-title is-centered">
                                 <span className="nes-text is-error title">
                                     Example:{" "}
                                 </span>
-                                <span>{list.example}</span>
-                            </div>
+                                <p>{list.example}</p>
+                            </EachWord>
                         </ItemStyle>
                     );
                 })}
@@ -82,6 +86,10 @@ const ItemStyle = styled.div`
     padding: 16px;
     background-color: ${(props) =>
         props.is_completed ? "#fdd791" : "aliceblue"};
+`;
+
+const EachWord = styled.div`
+    overflow-wrap: break-word;
 `;
 
 const Input = styled.div`
